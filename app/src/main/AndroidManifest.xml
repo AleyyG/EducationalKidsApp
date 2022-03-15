@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".FoodGameActivity"></activity>
+        <activity android:name=".MathGameActivity"></activity>
+        <activity android:name=".FoodGameActivity" />
         <activity android:name=".PuzzleGameActivity" />
         <activity android:name=".NumberGameActivity" />
         <activity android:name=".ColorGameActivity" />
