@@ -13,47 +13,47 @@ import com.airbnb.lottie.LottieAnimationView;
 import java.util.Random;
 
 public class ColorGameActivity extends AppCompatActivity {
-    ImageButton colorButton;
-    ImageButton backGameScene;
-    int controlNumber;
-    Random random = new Random();
-    MediaPlayer mediaPlayer;
+    ImageButton colorButton; //layoutda bulunan nesnelerimi buraya tantmam gerekiyor o sebeple butonlrimi tanimliyorum
+    ImageButton backGameScene; //geri gelme butonumu tanimliyorum.
+    Random random = new Random(); //random classindan bir random uretiyorum
+    MediaPlayer mediaPlayer; // ses ekleyecegim icin mediaplayer tanimliyorum
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_game);
-        backGameScene = findViewById(R.id.backButton);
-        colorButton = findViewById(R.id.colorButton);
-        final LottieAnimationView nextButton = findViewById(R.id.nextButton);
-        mediaPlayer = MediaPlayer.create(this,R.raw.blue_sound);
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        backGameScene = findViewById(R.id.backButton); //geri tusuna bastiginda gameScene'e donebilmesi icin backButtonu id ile buldurdum.
+        colorButton = findViewById(R.id.colorButton); //kartlarin ustune bastiginda kartlari degisebilmesi icin colorButtonu id ile buldurdum.
+        final LottieAnimationView nextButton = findViewById(R.id.nextButton); //bu bir animasyon ve bu animasyonu id ile sahnede buldurdum.
+        mediaPlayer = MediaPlayer.create(this,R.raw.blue_sound); // seslerimin calisabilmesi icin bir mediaplayer olusturdum.
+        nextButton.setOnClickListener(new View.OnClickListener() { //next butona bastiginda olmasi gerekenleri yazacagim.
             @Override
-            public void onClick(View view) {
-                nextButton.playAnimation();
-                int randNumber = random.nextInt(11);
-                RandomCards(randNumber,colorButton);
+            public void onClick(View view) { //onClick metotlari tikladiginda olmasi gerekenlerin gerceklesmesi gereken butonlar.
+                nextButton.playAnimation(); //nextbuttonun animasyonunu oynattim
+                int randNumber = random.nextInt(11); // butona her tiklandiginde 0 ile 11 arasinda sayi urettiriyorum
+                RandomCards(randNumber,colorButton); // olusturdugum metoda sayiyi ve tıkladigim colorButtonu gonderiyorum
             }
         });
-        colorButton.setOnClickListener(new View.OnClickListener() {
+        colorButton.setOnClickListener(new View.OnClickListener() { //renk butonuna tikladiginda
             @Override
             public void onClick(View view) {
                 mediaPlayer.start();
-            }
+            } //burada switch case de surekli yazmak yerine renk butonuna tikladiginda mediaPlayeri oynatmayi calistiriyorum
+            //oncesinde RandomCards metodum calistigindan dolayi calistiginda oynamasi gereken track ayarlanmis oluyor.
         });
-        backGameScene.setOnClickListener(new View.OnClickListener() {
+        backGameScene.setOnClickListener(new View.OnClickListener() { //game menusune donus butonu
             @Override
             public void onClick(View view) {
-                Intent gameScene = new Intent(ColorGameActivity.this,GameActivity.class);
-                startActivity((gameScene));
+                Intent gameScene = new Intent(ColorGameActivity.this,GameActivity.class); //yeni bir sahne gecisi olusturuyorum, bu sahneden gameActivity sahnesine gececek
+                startActivity((gameScene)); //sonrada olusturdugum bu ıntenti baslatiyorum
             }
         });
     }
-    public void RandomCards(int number, ImageButton colorButton){
-        switch (number){
-            case 1: colorButton.setImageResource(R.drawable.black);
-            mediaPlayer.reset();
-            mediaPlayer = MediaPlayer.create(this,R.raw.black_sound);
+    public void RandomCards(int number, ImageButton colorButton){ //bu metotta kartlarin random olarak renklerinin degismesini ve seslerini ayarliyoruz.
+        switch (number){ //numarayi kontrol ediyor
+            case 1: colorButton.setImageResource(R.drawable.black); //1 oldugunda colorButtonun imageini siyah olan image ile degistir.
+            mediaPlayer.reset(); //mediaplayer i resetle
+            mediaPlayer = MediaPlayer.create(this,R.raw.black_sound); //mediaplyerde black sesini olustur (burasi daha duzgun yazilabilir?)
                     break;
             case 2: colorButton.setImageResource(R.drawable.brown);
             mediaPlayer.reset();
