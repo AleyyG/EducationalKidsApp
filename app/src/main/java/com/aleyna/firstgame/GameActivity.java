@@ -16,12 +16,13 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        final LottieAnimationView colorGame = findViewById(R.id.nextButton);
+        final LottieAnimationView colorGame = findViewById(R.id.nextButton); //burada oynayan animasyonlarimi id ile bulduruyorum
         final LottieAnimationView numbersGame = findViewById(R.id.numbersGame);
         final LottieAnimationView puzzleGame = findViewById(R.id.puzzleGame);
         final LottieAnimationView foodGame = findViewById(R.id.foodGame);
-        final Button mathGame = findViewById(R.id.mathGame);
+        final Button mathGame = findViewById(R.id.mathGame); //bu suanda animasyon olmadigindan dolayi buton seklinde
 
+        //sonrasinda hepsine tikladigim zaman gerekli activitylere gecmeleri icin onClick metodlarinda gecislerini yaziyorum.
         mathGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
