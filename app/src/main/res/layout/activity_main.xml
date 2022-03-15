@@ -25,16 +25,17 @@
 
     <ImageButton
         android:id="@+id/playButton"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_marginTop="160dp"
+        android:layout_width="187dp"
+        android:layout_height="157dp"
         android:background="@color/cardview_shadow_end_color"
         android:onClick="playClick"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.249"
+        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/play" />
+        app:layout_constraintVertical_bias="0.275"
+        app:srcCompat="@drawable/play_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
