@@ -7,16 +7,6 @@
     tools:context=".MathGameActivity">
 
     <ImageView
-        android:id="@+id/back_card"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/main_photo" />
-
-    <ImageView
         android:id="@+id/front_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,6 +18,16 @@
         app:layout_constraintVertical_bias="0.502"
         app:srcCompat="@drawable/current" />
 
+    <ImageView
+        android:id="@+id/back_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/main_photo" />
+
     <Button
         android:id="@+id/flip_button"
         android:layout_width="wrap_content"
@@ -38,5 +38,101 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back_card" />
+
+    <TextView
+        android:id="@+id/first_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:alpha="0"
+        android:fontFamily="@font/candy_beans"
+        android:text="15"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/guess"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/processName"
+        app:layout_constraintVertical_bias="0.505" />
+
+    <TextView
+        android:id="@+id/process"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:alpha="0"
+        android:fontFamily="@font/candy_beans"
+        android:text="+"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintStart_toEndOf="@+id/first_number"
+        app:layout_constraintTop_toTopOf="@+id/first_number" />
+
+    <TextView
+        android:id="@+id/second_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:alpha="0"
+        android:fontFamily="@font/candy_beans"
+        android:text="15"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintStart_toEndOf="@+id/process"
+        app:layout_constraintTop_toTopOf="@+id/process" />
+
+    <TextView
+        android:id="@+id/equals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:alpha="0"
+        android:fontFamily="@font/candy_beans"
+        android:text="="
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintStart_toEndOf="@+id/second_number"
+        app:layout_constraintTop_toTopOf="@+id/second_number" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:alpha="0"
+        android:fontFamily="@font/candy_beans"
+        android:text="?"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintStart_toEndOf="@+id/equals"
+        app:layout_constraintTop_toTopOf="@+id/equals" />
+
+    <EditText
+        android:id="@+id/guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Guess"
+        app:layout_constraintBottom_toBottomOf="@+id/back_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/processName"
+        app:layout_constraintVertical_bias="0.618" />
+
+    <TextView
+        android:id="@+id/processName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:alpha="0"
+        android:fontFamily="@font/candy_beans"
+        android:text="ADDITION"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/back_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
