@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 public class MathGameActivity extends AppCompatActivity {
@@ -42,12 +44,14 @@ public class MathGameActivity extends AppCompatActivity {
         findOnScene();
         AnimatorSet front_anim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.front_animator);
         AnimatorSet back_anim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.back_animator);
+
         flipButton = findViewById(R.id.flip_button);
+
         final LottieAnimationView confetti = findViewById(R.id.confetti);
         confettiSound = MediaPlayer.create(this,R.raw.confetti);
         clapSound = MediaPlayer.create(this,R.raw.clap);
         wrongAnswer = MediaPlayer.create(this,R.raw.wrong_answer);
-
+        ChangeBackground();
         backGameScene.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,6 +105,17 @@ public class MathGameActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void ChangeBackground(){
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("k");
+        final LottieAnimationView background = findViewById(R.id.background);
+        int time = Integer.parseInt(simpleDateFormat.format(date));
+        if(time>20 || time <7){
+            background.setAnimation(R.raw.night_background);
+        }else{
+            background.setAnimation(R.raw.morning_background);
+        }
     }
     public void numberGenerator(){ //sayilari random olarak urettik
         int numberFirst = random.nextInt(21);

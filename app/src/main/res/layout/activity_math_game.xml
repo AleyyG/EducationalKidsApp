@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MathGameActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/background"
+        android:layout_width="420dp"
+        android:layout_height="735dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/confetti"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/night_background"
+        tools:ignore="MissingConstraints" />
+
     <ImageView
         android:id="@+id/front_card"
         android:layout_width="400dp"
@@ -133,7 +146,7 @@
         android:layout_width="172dp"
         android:layout_height="116dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/white"
+        android:background="@null"
         android:scaleType="centerInside"
         android:text="CONTROL"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -164,7 +177,7 @@
         android:layout_width="172dp"
         android:layout_height="116dp"
         android:layout_marginStart="16dp"
-        android:background="@color/white"
+        android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -176,7 +189,7 @@
         android:id="@+id/backButton"
         android:layout_width="141dp"
         android:layout_height="111dp"
-        android:background="@color/white"
+        android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/front_card"
         app:layout_constraintStart_toStartOf="parent"

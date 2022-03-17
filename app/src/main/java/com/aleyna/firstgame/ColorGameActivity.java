@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 
 import com.airbnb.lottie.LottieAnimationView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 public class ColorGameActivity extends AppCompatActivity {
@@ -26,6 +28,7 @@ public class ColorGameActivity extends AppCompatActivity {
         colorButton = findViewById(R.id.colorButton); //kartlarin ustune bastiginda kartlari degisebilmesi icin colorButtonu id ile buldurdum.
         nextButton = findViewById(R.id.next_button);
         mediaPlayer = MediaPlayer.create(this,R.raw.blue_sound); // seslerimin calisabilmesi icin bir mediaplayer olusturdum.
+        ChangeBackground();
         nextButton.setOnClickListener(new View.OnClickListener() { //next butona bastiginda olmasi gerekenleri yazacagim.
             @Override
             public void onClick(View view) { //onClick metotlari tikladiginda olmasi gerekenlerin gerceklesmesi gereken butonlar.
@@ -47,6 +50,17 @@ public class ColorGameActivity extends AppCompatActivity {
                 startActivity((gameScene)); //sonrada olusturdugum bu ıntenti baslatiyorum
             }
         });
+    }
+    public void ChangeBackground(){
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("k");
+        final LottieAnimationView background = findViewById(R.id.background);
+        int time = Integer.parseInt(simpleDateFormat.format(date));
+        if(time>20 || time <7){
+            background.setAnimation(R.raw.night_background);
+        }else{
+            background.setAnimation(R.raw.morning_background);
+        }
     }
     public void RandomCards(int number, ImageButton colorButton){ //bu metotta kartlarin random olarak renklerinin degismesini ve seslerini ayarliyoruz.
         switch (number){ //numarayi kontrol ediyor

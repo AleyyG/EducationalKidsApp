@@ -20,7 +20,7 @@ public class GameActivity extends AppCompatActivity {
         final LottieAnimationView numbersGame = findViewById(R.id.numbersGame);
         final LottieAnimationView puzzleGame = findViewById(R.id.puzzleGame);
         final LottieAnimationView foodGame = findViewById(R.id.foodGame);
-        final Button mathGame = findViewById(R.id.mathGame); //bu suanda animasyon olmadigindan dolayi buton seklinde
+        final LottieAnimationView mathGame = findViewById(R.id.mathGame); //bu suanda animasyon olmadigindan dolayi buton seklinde
 
         //sonrasinda hepsine tikladigim zaman gerekli activitylere gecmeleri icin onClick metodlarinda gecislerini yaziyorum.
         mathGame.setOnClickListener(new View.OnClickListener() {

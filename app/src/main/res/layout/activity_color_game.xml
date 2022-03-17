@@ -4,13 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ColorGameActivity">
+    tools:context=".ColorGameActivity"><![CDATA[
+
+    ;
+        app:srcCompat="@drawable/blue"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="100dp" />
+
+    ]]>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/background"
+        android:layout_width="415dp"
+        android:layout_height="732dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/night_background"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/colorButton"
         android:layout_width="306dp"
         android:layout_height="447dp"
-        android:background="@color/white"
+        android:background="@null"
         android:contentDescription="blue"
         android:scaleType="centerInside"
         android:src="@drawable/blue"
@@ -19,16 +39,13 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.411" />;
-        app:srcCompat="@drawable/blue"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="100dp" />
+        app:layout_constraintVertical_bias="0.411" />
 
     <ImageButton
         android:id="@+id/next_button"
         android:layout_width="363dp"
         android:layout_height="151dp"
-        android:background="@color/white"
+        android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +58,7 @@
         android:id="@+id/backButton"
         android:layout_width="166dp"
         android:layout_height="119dp"
-        android:background="@color/white"
+        android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
