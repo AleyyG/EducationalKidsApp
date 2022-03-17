@@ -16,7 +16,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        final LottieAnimationView colorGame = findViewById(R.id.nextButton); //burada oynayan animasyonlarimi id ile bulduruyorum
+        final LottieAnimationView colorGame = findViewById(R.id.colorGame); //burada oynayan animasyonlarimi id ile bulduruyorum
         final LottieAnimationView numbersGame = findViewById(R.id.numbersGame);
         final LottieAnimationView puzzleGame = findViewById(R.id.puzzleGame);
         final LottieAnimationView foodGame = findViewById(R.id.foodGame);

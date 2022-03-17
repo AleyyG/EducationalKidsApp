@@ -24,28 +24,26 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="100dp" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/nextButton"
+    <ImageButton
+        android:id="@+id/next_button"
         android:layout_width="363dp"
         android:layout_height="151dp"
+        android:background="@color/white"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.972"
-        app:lottie_autoPlay="false"
-        app:lottie_loop="false"
-        app:lottie_rawRes="@raw/anim_next" />
+        app:srcCompat="@drawable/next_button" />
 
     <ImageButton
         android:id="@+id/backButton"
-        android:layout_width="58dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="166dp"
+        android:layout_height="119dp"
         android:background="@color/white"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/back_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

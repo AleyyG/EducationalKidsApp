@@ -13,7 +13,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import java.util.Random;
 
 public class ColorGameActivity extends AppCompatActivity {
-    ImageButton colorButton; //layoutda bulunan nesnelerimi buraya tantmam gerekiyor o sebeple butonlrimi tanimliyorum
+    ImageButton colorButton,nextButton; //layoutda bulunan nesnelerimi buraya tantmam gerekiyor o sebeple butonlrimi tanimliyorum
     ImageButton backGameScene; //geri gelme butonumu tanimliyorum.
     Random random = new Random(); //random classindan bir random uretiyorum
     MediaPlayer mediaPlayer; // ses ekleyecegim icin mediaplayer tanimliyorum
@@ -24,12 +24,11 @@ public class ColorGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_color_game);
         backGameScene = findViewById(R.id.backButton); //geri tusuna bastiginda gameScene'e donebilmesi icin backButtonu id ile buldurdum.
         colorButton = findViewById(R.id.colorButton); //kartlarin ustune bastiginda kartlari degisebilmesi icin colorButtonu id ile buldurdum.
-        final LottieAnimationView nextButton = findViewById(R.id.nextButton); //bu bir animasyon ve bu animasyonu id ile sahnede buldurdum.
+        nextButton = findViewById(R.id.next_button);
         mediaPlayer = MediaPlayer.create(this,R.raw.blue_sound); // seslerimin calisabilmesi icin bir mediaplayer olusturdum.
         nextButton.setOnClickListener(new View.OnClickListener() { //next butona bastiginda olmasi gerekenleri yazacagim.
             @Override
             public void onClick(View view) { //onClick metotlari tikladiginda olmasi gerekenlerin gerceklesmesi gereken butonlar.
-                nextButton.playAnimation(); //nextbuttonun animasyonunu oynattim
                 int randNumber = random.nextInt(11); // butona her tiklandiginde 0 ile 11 arasinda sayi urettiriyorum
                 RandomCards(randNumber,colorButton); // olusturdugum metoda sayiyi ve tıkladigim colorButtonu gonderiyorum
             }
