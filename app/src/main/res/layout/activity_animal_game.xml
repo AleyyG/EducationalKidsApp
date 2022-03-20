@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ColorGameActivity">
+    tools:context=".AnimalGameActivity">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/background"
@@ -20,18 +20,28 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/colorButton"
+        android:id="@+id/animalButton"
         android:layout_width="306dp"
         android:layout_height="447dp"
         android:background="@null"
         android:scaleType="centerInside"
-        android:src="@drawable/blue"
+        android:src="@drawable/animal_butterfly"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.411" />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="166dp"
+        android:layout_height="119dp"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
 
     <ImageButton
         android:id="@+id/next_button"
@@ -46,13 +56,4 @@
         app:layout_constraintVertical_bias="0.972"
         app:srcCompat="@drawable/next_button" />
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="166dp"
-        android:layout_height="119dp"
-        android:background="@null"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

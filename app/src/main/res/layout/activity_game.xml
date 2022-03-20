@@ -92,7 +92,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="150dp"
         android:background="@null"
-        android:text="math game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.122"
@@ -102,5 +101,22 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/anim_maths" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animalGame"
+        android:layout_width="156dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="150dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toEndOf="@+id/mathGame"
+        app:layout_constraintTop_toBottomOf="@+id/foodGame"
+        app:layout_constraintVertical_bias="0.0"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/anim_cat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

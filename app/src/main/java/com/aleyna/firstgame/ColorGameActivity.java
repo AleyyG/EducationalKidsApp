@@ -104,7 +104,6 @@ public class ColorGameActivity extends AppCompatActivity {
             mediaPlayer.reset();
             mediaPlayer = MediaPlayer.create(this,R.raw.yellow_sound);
                     break;
-            case 0:
             default: colorButton.setImageResource(R.drawable.blue);
             mediaPlayer.reset();
             mediaPlayer = MediaPlayer.create(this,R.raw.blue_sound);

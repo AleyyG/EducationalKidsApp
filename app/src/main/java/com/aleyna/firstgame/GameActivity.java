@@ -20,7 +20,16 @@ public class GameActivity extends AppCompatActivity {
         final LottieAnimationView numbersGame = findViewById(R.id.numbersGame);
         final LottieAnimationView puzzleGame = findViewById(R.id.puzzleGame);
         final LottieAnimationView foodGame = findViewById(R.id.foodGame);
-        final LottieAnimationView mathGame = findViewById(R.id.mathGame); //bu suanda animasyon olmadigindan dolayi buton seklinde
+        final LottieAnimationView mathGame = findViewById(R.id.mathGame);
+        final LottieAnimationView animalGame = findViewById(R.id.animalGame);
+
+        animalGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent animalGameScene = new Intent(GameActivity.this,AnimalGameActivity.class);
+                startActivity(animalGameScene);
+            }
+        });
 
         //sonrasinda hepsine tikladigim zaman gerekli activitylere gecmeleri icin onClick metodlarinda gecislerini yaziyorum.
         mathGame.setOnClickListener(new View.OnClickListener() {
