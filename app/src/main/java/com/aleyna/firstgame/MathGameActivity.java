@@ -42,6 +42,7 @@ public class MathGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_math_game);
 
         findOnScene();
+
         AnimatorSet front_anim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.front_animator);
         AnimatorSet back_anim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.back_animator);
 
@@ -52,6 +53,7 @@ public class MathGameActivity extends AppCompatActivity {
         clapSound = MediaPlayer.create(this,R.raw.clap);
         wrongAnswer = MediaPlayer.create(this,R.raw.wrong_answer);
         ChangeBackground();
+
         backGameScene.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +71,9 @@ public class MathGameActivity extends AppCompatActivity {
                     confetti.playAnimation();
                     confettiSound.start();
                     clapSound.start();
+
                 }else{
+
                   wrongAnswer.start();
                 }
             }
@@ -86,7 +90,7 @@ public class MathGameActivity extends AppCompatActivity {
                     back_anim.setTarget(card_back); //arka animasyonunun hangi kartta oynamasi gerektigini tanimliyorum
                     front_anim.start(); //animasyonlari baslatiyorum
                     back_anim.start();
-                    numberGenerator();
+                 //   numberGenerator();
                     closeVisible(); //onu donukse arkaya cevirecegemizdden dolayı gorunurlukleri kapatmam gerekiyor
                     confetti.setAlpha(0f);
                     isFront = false; //onu donuk mu boolean degerini artik arkasi donuk olacagindan false yapiyorum

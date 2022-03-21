@@ -28,7 +28,9 @@ public class ColorGameActivity extends AppCompatActivity {
         colorButton = findViewById(R.id.colorButton); //kartlarin ustune bastiginda kartlari degisebilmesi icin colorButtonu id ile buldurdum.
         nextButton = findViewById(R.id.next_button);
         mediaPlayer = MediaPlayer.create(this,R.raw.blue_sound); // seslerimin calisabilmesi icin bir mediaplayer olusturdum.
+
         ChangeBackground();
+
         nextButton.setOnClickListener(new View.OnClickListener() { //next butona bastiginda olmasi gerekenleri yazacagim.
             @Override
             public void onClick(View view) { //onClick metotlari tikladiginda olmasi gerekenlerin gerceklesmesi gereken butonlar.
