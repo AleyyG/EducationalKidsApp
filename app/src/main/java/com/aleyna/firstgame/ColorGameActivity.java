@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class ColorGameActivity extends AppCompatActivity {
+    Main main;
     ImageButton colorButton,nextButton; //layoutda bulunan nesnelerimi buraya tantmam gerekiyor o sebeple butonlrimi tanimliyorum
     ImageButton backGameScene; //geri gelme butonumu tanimliyorum.
     Random random = new Random(); //random classindan bir random uretiyorum
@@ -29,7 +30,8 @@ public class ColorGameActivity extends AppCompatActivity {
         nextButton = findViewById(R.id.next_button);
         mediaPlayer = MediaPlayer.create(this,R.raw.blue_sound); // seslerimin calisabilmesi icin bir mediaplayer olusturdum.
 
-        ChangeBackground();
+        final LottieAnimationView background = findViewById(R.id.background);
+        main.ChangeBackground(background);
 
         nextButton.setOnClickListener(new View.OnClickListener() { //next butona bastiginda olmasi gerekenleri yazacagim.
             @Override
@@ -52,17 +54,6 @@ public class ColorGameActivity extends AppCompatActivity {
                 startActivity((gameScene)); //sonrada olusturdugum bu ıntenti baslatiyorum
             }
         });
-    }
-    public void ChangeBackground(){
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("k");
-        final LottieAnimationView background = findViewById(R.id.background);
-        int time = Integer.parseInt(simpleDateFormat.format(date));
-        if(time>20 || time <7){
-            background.setAnimation(R.raw.night_background);
-        }else{
-            background.setAnimation(R.raw.morning_background);
-        }
     }
     public void RandomCards(int number, ImageButton colorButton){ //bu metotta kartlarin random olarak renklerinin degismesini ve seslerini ayarliyoruz.
         switch (number){ //numarayi kontrol ediyor

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -16,7 +17,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class AnimalGameActivity extends AppCompatActivity {
-
+    Main main;
     ImageButton backGameScene,animalButton,nextButton;
     Random random = new Random();
     MediaPlayer mediaPlayer;
@@ -28,7 +29,8 @@ public class AnimalGameActivity extends AppCompatActivity {
         animalButton = findViewById(R.id.animalButton);
         nextButton = findViewById(R.id.next_button);
         mediaPlayer = MediaPlayer.create(this,R.raw.butterfly_sound);
-        ChangeBackground();
+        final  LottieAnimationView background = findViewById(R.id.background);
+        main.ChangeBackground(background);
         //next butona bastiginda olmasi gerekenleri yazacagim.
         nextButton.setOnClickListener(view -> { //onClick metotlari tikladiginda olmasi gerekenlerin gerceklesmesi gereken butonlar.
             int randNumber = random.nextInt(23); // butona her tiklandiginde 0 ile 23 arasinda sayi urettiriyorum
@@ -46,18 +48,6 @@ public class AnimalGameActivity extends AppCompatActivity {
                 mediaPlayer.start();
             }
         });
-    }
-
-    public void ChangeBackground(){
-        Date date = new Date();
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("k");
-        final LottieAnimationView background = findViewById(R.id.background);
-        int time = Integer.parseInt(simpleDateFormat.format(date));
-        if(time>20 || time <7){
-            background.setAnimation(R.raw.night_background);
-        }else{
-            background.setAnimation(R.raw.morning_background);
-        }
     }
     public void RandomCards(int number, ImageButton animalButton){
         switch (number){
