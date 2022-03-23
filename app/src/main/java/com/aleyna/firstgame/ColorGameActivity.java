@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class ColorGameActivity extends AppCompatActivity {
-    Main main;
+    Main main = new Main();
     ImageButton colorButton,nextButton; //layoutda bulunan nesnelerimi buraya tantmam gerekiyor o sebeple butonlrimi tanimliyorum
     ImageButton backGameScene; //geri gelme butonumu tanimliyorum.
     Random random = new Random(); //random classindan bir random uretiyorum

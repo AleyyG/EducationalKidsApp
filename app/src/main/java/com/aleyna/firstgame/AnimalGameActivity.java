@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class AnimalGameActivity extends AppCompatActivity {
-    Main main;
+    Main main = new Main();
     ImageButton backGameScene,animalButton,nextButton;
     Random random = new Random();
     MediaPlayer mediaPlayer;

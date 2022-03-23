@@ -26,6 +26,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="32dp"
         android:scaleType="centerInside"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,6 +39,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="76dp"
         android:layout_marginTop="124dp"
+        android:background="@null"
         app:layout_constraintEnd_toEndOf="@+id/third_shape"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/first_shape"
@@ -48,8 +50,9 @@
         android:id="@+id/third_shape"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="4dp"
+        android:background="@null"
         app:layout_constraintStart_toEndOf="@+id/first_shape"
         app:layout_constraintTop_toTopOf="@+id/first_shape"
         app:srcCompat="@drawable/fill_cubes" />
@@ -60,10 +63,56 @@
         android:layout_height="100dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="132dp"
+        android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintStart_toEndOf="@+id/second_shape"
         app:layout_constraintTop_toTopOf="@+id/third_shape"
         app:srcCompat="@drawable/fill_diamond" />
+
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="80dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cubes"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/cone"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="28dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cubes"
+        app:srcCompat="@drawable/cone" />
+
+    <ImageView
+        android:id="@+id/diamond"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="148dp"
+        android:background="@null"
+        app:layout_constraintEnd_toStartOf="@+id/cone"
+        app:layout_constraintTop_toTopOf="@+id/circle"
+        app:srcCompat="@drawable/diamond" />
+
+    <ImageView
+        android:id="@+id/cubes"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="88dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toEndOf="@+id/circle"
+        app:layout_constraintTop_toBottomOf="@+id/second_shape"
+        app:srcCompat="@drawable/cubes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

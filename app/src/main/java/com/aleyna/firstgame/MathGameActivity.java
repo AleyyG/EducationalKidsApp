@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class MathGameActivity extends AppCompatActivity {
-    Main main;
+    Main main = new Main();
     private boolean isFront = false;
     private ImageView card_front;
     private ImageView card_back;
