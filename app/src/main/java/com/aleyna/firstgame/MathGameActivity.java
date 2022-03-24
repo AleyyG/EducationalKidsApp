@@ -28,7 +28,7 @@ public class MathGameActivity extends AppCompatActivity {
     private boolean isFront = false;
     private ImageView card_front;
     private ImageView card_back;
-    private ImageButton backGameScene,flipButton,checkButton;
+    private ImageButton backGameScene,flipButton,checkButton; //bu ksıımlar düzelecek !
     private TextView first_number,second_number,process,processName,equals,question;
     private EditText guess;
     private Handler handler = new Handler(); //bunu animasyonla uyumlu olabilmesi icin biraz bekletmeme gerektiginden olusturdum
@@ -48,6 +48,7 @@ public class MathGameActivity extends AppCompatActivity {
         AnimatorSet back_anim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.back_animator);
         final LottieAnimationView background = findViewById(R.id.background);
         main.ChangeBackground(background);
+
         flipButton = findViewById(R.id.flip_button);
 
         final LottieAnimationView confetti = findViewById(R.id.confetti);
@@ -55,7 +56,7 @@ public class MathGameActivity extends AppCompatActivity {
         clapSound = MediaPlayer.create(this,R.raw.clap);
         wrongAnswer = MediaPlayer.create(this,R.raw.wrong_answer);
 
-        backGameScene.setOnClickListener(new View.OnClickListener() {
+      backGameScene.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent gameScene = new Intent(MathGameActivity.this,GameActivity.class); //yeni bir sahne gecisi olusturuyorum, bu sahneden gameActivity sahnesine gececek
@@ -67,11 +68,13 @@ public class MathGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int currentResult = Integer.parseInt(guess.getText().toString());
+
                 if(result == currentResult){
                     confetti.setAlpha(1f);
                     confetti.playAnimation();
                     confettiSound.start();
                     clapSound.start();
+                    checkButton.setEnabled(false);
 
                 }else{
 
@@ -91,6 +94,9 @@ public class MathGameActivity extends AppCompatActivity {
                     back_anim.setTarget(card_back); //arka animasyonunun hangi kartta oynamasi gerektigini tanimliyorum
                     front_anim.start(); //animasyonlari baslatiyorum
                     back_anim.start();
+                    guess.setEnabled(false);
+                    guess.setText("");
+
                  //   numberGenerator();
                     closeVisible(); //onu donukse arkaya cevirecegemizdden dolayı gorunurlukleri kapatmam gerekiyor
                     confetti.setAlpha(0f);
@@ -103,6 +109,9 @@ public class MathGameActivity extends AppCompatActivity {
                     back_anim.setTarget(card_front);
                     front_anim.start();
                     back_anim.start();
+                    guess.setEnabled(true);
+                    guess.setText("");
+                    checkButton.setEnabled(true);
                     numberGenerator();
                     openVisible(); //gorunurlugu aciyorum
                     isFront = true; //artik onu donuk olacagindan dolayi isFront true olmalidir.

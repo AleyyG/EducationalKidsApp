@@ -24,6 +24,7 @@
         android:layout_width="306dp"
         android:layout_height="447dp"
         android:background="@null"
+        android:contentDescription="@string/description"
         android:scaleType="centerInside"
         android:src="@drawable/animal_butterfly"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,17 +32,20 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.411" />
+        app:layout_constraintVertical_bias="0.411"
+        tools:ignore="ContentDescription,DuplicateSpeakableTextCheck" />
 
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="166dp"
         android:layout_height="119dp"
         android:background="@null"
+        android:contentDescription="@string/description"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_button" />
+        app:srcCompat="@drawable/back_button"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/next_button"
@@ -49,11 +53,13 @@
         android:layout_height="151dp"
         android:background="@null"
         android:scaleType="centerInside"
+        android:contentDescription="@string/description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.972"
-        app:srcCompat="@drawable/next_button" />
+        app:srcCompat="@drawable/next_button"
+        tools:ignore="ContentDescription"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

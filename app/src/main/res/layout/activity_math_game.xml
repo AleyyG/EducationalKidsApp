@@ -30,7 +30,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.498"
-        app:srcCompat="@drawable/current" />
+        app:srcCompat="@drawable/current"
+        android:contentDescription="TODO" />
 
     <ImageView
         android:id="@+id/back_card"
@@ -42,7 +43,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.502"
-        app:srcCompat="@drawable/main_photo" />
+        app:srcCompat="@drawable/main_photo"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/first_number"
@@ -147,6 +149,7 @@
         android:layout_height="116dp"
         android:layout_marginEnd="32dp"
         android:background="@null"
+        android:contentDescription="@string/description"
         android:scaleType="centerInside"
         android:text="CONTROL"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -178,6 +181,7 @@
         android:layout_height="116dp"
         android:layout_marginStart="16dp"
         android:background="@null"
+        android:contentDescription="@string/description"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -190,6 +194,7 @@
         android:layout_width="141dp"
         android:layout_height="111dp"
         android:background="@null"
+        android:contentDescription="@string/description"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/front_card"
         app:layout_constraintStart_toStartOf="parent"

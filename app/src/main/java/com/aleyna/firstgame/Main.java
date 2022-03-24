@@ -1,15 +1,21 @@
 package com.aleyna.firstgame;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.airbnb.lottie.LottieAnimationView;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Main {
+public class Main extends AppCompatActivity {
 
     public void ChangeBackground(LottieAnimationView background) { //her sahnede arka plan böyle olacaginden dolayi burayi bu sekilde yaptim.
         Date date = new Date();
@@ -21,15 +27,5 @@ public class Main {
             background.setAnimation(R.raw.morning_background);
         }
     }
- /*   public void BackGameScene(ImageButton backButton){
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-    } buraya butona basılınca geri gitme kodunu eklemem gerek çünkü bu her sahnede olacak
-    */
-
 }
 
