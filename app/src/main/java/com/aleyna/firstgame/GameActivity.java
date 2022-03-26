@@ -19,8 +19,6 @@ public class GameActivity extends AppCompatActivity {
 
         final LottieAnimationView colorGame = findViewById(R.id.colorGame); //burada oynayan animasyonlarimi id ile bulduruyorum
         final LottieAnimationView numbersGame = findViewById(R.id.numbersGame);
-        final LottieAnimationView puzzleGame = findViewById(R.id.puzzleGame);
-        final LottieAnimationView foodGame = findViewById(R.id.foodGame);
         final LottieAnimationView mathGame = findViewById(R.id.mathGame);
         final LottieAnimationView animalGame = findViewById(R.id.animalGame);
         final ImageView matchingGame = findViewById(R.id.matchingGame);
@@ -65,23 +63,5 @@ public class GameActivity extends AppCompatActivity {
                 startActivity(numberGameScene);
             }
         });
-
-        puzzleGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent puzzleGameScene = new Intent(GameActivity.this,PuzzleGameActivity.class);
-                startActivity(puzzleGameScene);
-            }
-        });
-
-        foodGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent foodGameScene = new Intent(GameActivity.this,FoodGameActivity.class);
-                startActivity(foodGameScene);
-            }
-        });
-
-
     }
 }

@@ -12,8 +12,6 @@
         <activity android:name=".MatchingGameActivity"></activity>
         <activity android:name=".AnimalGameActivity" />
         <activity android:name=".MathGameActivity" />
-        <activity android:name=".FoodGameActivity" />
-        <activity android:name=".PuzzleGameActivity" />
         <activity android:name=".NumberGameActivity" />
         <activity android:name=".ColorGameActivity" />
         <activity android:name=".GameActivity" />
