@@ -21,16 +21,43 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
+        android:id="@+id/shapes_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_shape"
+        app:srcCompat="@drawable/shapes_background" />
+
+    <ImageButton
+        android:id="@+id/next_button"
+        android:layout_width="172dp"
+        android:layout_height="116dp"
+        android:alpha="0.0"
+        android:background="@null"
+        android:contentDescription="@string/description"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36"
+        app:srcCompat="@drawable/next_button" />
+
+    <ImageView
         android:id="@+id/first_shape"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="32dp"
-        android:scaleType="centerInside"
         android:background="@null"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.217"
+        app:layout_constraintVertical_bias="0.174"
         app:srcCompat="@drawable/fill_circle" />
 
     <ImageView
@@ -71,48 +98,77 @@
         app:srcCompat="@drawable/fill_diamond" />
 
     <ImageView
-        android:id="@+id/circle"
+        android:id="@+id/first_match"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="40dp"
         android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cubes"
+        app:layout_constraintTop_toTopOf="@+id/third_match"
         app:srcCompat="@drawable/circle" />
 
     <ImageView
-        android:id="@+id/cone"
+        android:id="@+id/second_match"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="28dp"
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cubes"
+        app:layout_constraintTop_toTopOf="@+id/third_match"
         app:srcCompat="@drawable/cone" />
 
     <ImageView
-        android:id="@+id/diamond"
+        android:id="@+id/fourth_match"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="124dp"
-        android:layout_marginEnd="148dp"
+        android:layout_marginEnd="140dp"
         android:background="@null"
-        app:layout_constraintEnd_toStartOf="@+id/cone"
-        app:layout_constraintTop_toTopOf="@+id/circle"
+        app:layout_constraintEnd_toStartOf="@+id/second_match"
+        app:layout_constraintTop_toTopOf="@+id/first_match"
         app:srcCompat="@drawable/diamond" />
 
     <ImageView
-        android:id="@+id/cubes"
+        android:id="@+id/third_match"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="96dp"
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
-        app:layout_constraintStart_toEndOf="@+id/circle"
+        app:layout_constraintHorizontal_bias="0.747"
+        app:layout_constraintStart_toEndOf="@+id/first_match"
         app:layout_constraintTop_toBottomOf="@+id/second_shape"
         app:srcCompat="@drawable/cubes" />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="141dp"
+        android:layout_height="111dp"
+        android:background="@null"
+        android:contentDescription="@string/description"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.296"
+        app:srcCompat="@drawable/back_button" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/confetti"
+        android:layout_width="414dp"
+        android:layout_height="731dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/anim_confetti2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

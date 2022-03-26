@@ -26,27 +26,27 @@
         android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172"
+        app:layout_constraintVertical_bias="0.055"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/anim_color" />
+        app:lottie_rawRes="@raw/color_game_anim" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/numbersGame"
         android:layout_width="156dp"
         android:layout_height="156dp"
-        android:background="@null"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="28dp"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/colorGame"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172"
+        app:layout_constraintVertical_bias="0.055"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/anim_numbers" />
@@ -118,5 +118,17 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/anim_cat" />
+
+    <ImageView
+        android:id="@+id/matchingGame"
+        android:layout_width="149dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mathGame"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/fill_trefoil" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

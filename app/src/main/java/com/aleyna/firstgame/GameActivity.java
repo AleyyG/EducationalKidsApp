@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -22,6 +23,15 @@ public class GameActivity extends AppCompatActivity {
         final LottieAnimationView foodGame = findViewById(R.id.foodGame);
         final LottieAnimationView mathGame = findViewById(R.id.mathGame);
         final LottieAnimationView animalGame = findViewById(R.id.animalGame);
+        final ImageView matchingGame = findViewById(R.id.matchingGame);
+
+        matchingGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent matchingGameScene = new Intent(GameActivity.this,MatchingGameActivity.class);
+                startActivity(matchingGameScene);
+            }
+        });
 
         animalGame.setOnClickListener(new View.OnClickListener() {
             @Override
