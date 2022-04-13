@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity {
         final LottieAnimationView numbersGame = findViewById(R.id.numbersGame);
         final LottieAnimationView mathGame = findViewById(R.id.mathGame);
         final LottieAnimationView animalGame = findViewById(R.id.animalGame);
-        final ImageView matchingGame = findViewById(R.id.matchingGame);
+        final LottieAnimationView matchingGame = findViewById(R.id.matchingGame);
 
         matchingGame.setOnClickListener(new View.OnClickListener() {
             @Override

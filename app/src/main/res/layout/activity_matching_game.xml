@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_shape"
+        app:layout_constraintTop_toBottomOf="@+id/card_one"
         app:srcCompat="@drawable/shapes_background" />
 
     <ImageButton
@@ -48,7 +48,7 @@
         app:srcCompat="@drawable/next_button" />
 
     <ImageView
-        android:id="@+id/first_shape"
+        android:id="@+id/card_one"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="32dp"
@@ -61,31 +61,31 @@
         app:srcCompat="@drawable/fill_circle" />
 
     <ImageView
-        android:id="@+id/second_shape"
+        android:id="@+id/card_two"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="76dp"
         android:layout_marginTop="124dp"
         android:background="@null"
-        app:layout_constraintEnd_toEndOf="@+id/third_shape"
+        app:layout_constraintEnd_toEndOf="@+id/card_three"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/first_shape"
-        app:layout_constraintTop_toTopOf="@+id/first_shape"
+        app:layout_constraintStart_toStartOf="@+id/card_one"
+        app:layout_constraintTop_toTopOf="@+id/card_one"
         app:srcCompat="@drawable/fill_cone" />
 
     <ImageView
-        android:id="@+id/third_shape"
+        android:id="@+id/card_three"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="4dp"
         android:background="@null"
-        app:layout_constraintStart_toEndOf="@+id/first_shape"
-        app:layout_constraintTop_toTopOf="@+id/first_shape"
+        app:layout_constraintStart_toEndOf="@+id/card_one"
+        app:layout_constraintTop_toTopOf="@+id/card_one"
         app:srcCompat="@drawable/fill_cubes" />
 
     <ImageView
-        android:id="@+id/fourth_shape"
+        android:id="@+id/card_four"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="60dp"
@@ -93,44 +93,44 @@
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toEndOf="@+id/second_shape"
-        app:layout_constraintTop_toTopOf="@+id/third_shape"
+        app:layout_constraintStart_toEndOf="@+id/card_two"
+        app:layout_constraintTop_toTopOf="@+id/card_three"
         app:srcCompat="@drawable/fill_diamond" />
 
     <ImageView
-        android:id="@+id/first_match"
+        android:id="@+id/match_card_one"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="40dp"
         android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/third_match"
+        app:layout_constraintTop_toTopOf="@+id/match_card_three"
         app:srcCompat="@drawable/circle" />
 
     <ImageView
-        android:id="@+id/second_match"
+        android:id="@+id/match_card_two"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="28dp"
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/third_match"
+        app:layout_constraintTop_toTopOf="@+id/match_card_three"
         app:srcCompat="@drawable/cone" />
 
     <ImageView
-        android:id="@+id/fourth_match"
+        android:id="@+id/match_card_four"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="140dp"
         android:background="@null"
-        app:layout_constraintEnd_toStartOf="@+id/second_match"
-        app:layout_constraintTop_toTopOf="@+id/first_match"
+        app:layout_constraintEnd_toStartOf="@+id/match_card_two"
+        app:layout_constraintTop_toTopOf="@+id/match_card_one"
         app:srcCompat="@drawable/diamond" />
 
     <ImageView
-        android:id="@+id/third_match"
+        android:id="@+id/match_card_three"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="48dp"
@@ -138,8 +138,8 @@
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.747"
-        app:layout_constraintStart_toEndOf="@+id/first_match"
-        app:layout_constraintTop_toBottomOf="@+id/second_shape"
+        app:layout_constraintStart_toEndOf="@+id/match_card_one"
+        app:layout_constraintTop_toBottomOf="@+id/card_two"
         app:srcCompat="@drawable/cubes" />
 
     <ImageButton
