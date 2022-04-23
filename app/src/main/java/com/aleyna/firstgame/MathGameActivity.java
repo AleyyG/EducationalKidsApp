@@ -77,7 +77,6 @@ public class MathGameActivity extends AppCompatActivity {
                     checkButton.setEnabled(false);
 
                 }else{
-
                   wrongAnswer.start();
                 }
             }

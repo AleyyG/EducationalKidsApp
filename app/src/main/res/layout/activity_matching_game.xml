@@ -20,18 +20,6 @@
         app:lottie_rawRes="@raw/night_background"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/shapes_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:rotation="90"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_one"
-        app:srcCompat="@drawable/shapes_background" />
-
     <ImageButton
         android:id="@+id/next_button"
         android:layout_width="172dp"
@@ -158,8 +146,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/confetti"
-        android:layout_width="414dp"
-        android:layout_height="731dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

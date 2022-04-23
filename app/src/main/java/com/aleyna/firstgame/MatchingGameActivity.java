@@ -42,6 +42,13 @@ public class MatchingGameActivity extends AppCompatActivity {
     ArrayList<ImageView> matchingCards = new ArrayList<>();
     ArrayList<Integer> randomNumbers = new ArrayList<>();
 
+    int winCount = 0;
+
+    ArrayList<Float> xPositions = new ArrayList<>();
+    ArrayList<Float> yPositions = new ArrayList<>();
+
+    boolean savePos;
+
     @SuppressLint({"ClickableViewAccessibility"}) //touch mekanikleri için ekletmeyi zorunlu tuttu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,10 +82,116 @@ public class MatchingGameActivity extends AppCompatActivity {
                 GetImages();
                 for( ImageView x : cards) MoveObjects(x);
                 nextButton.setAlpha(0f);
+                ResetPositions();
             }
         });
     }
 
+    void GetImages(){
+        if(images.size() == 0){
+            AddImages();
+            AddMatchImages();
+        }
+        for ( ImageView x : cards) {
+            int rnd = random.nextInt(images.size());
+            x.setImageResource(images.get(rnd));
+            randomNumbers.add(matchImages.get(rnd));
+            x.setTag(matchImages.get(rnd));
+            images.remove(rnd);
+            matchImages.remove(rnd);
+        }
+        for( ImageView x : matchingCards){
+            int rnd = random.nextInt(randomNumbers.size());
+            x.setImageResource(randomNumbers.get(rnd));
+            x.setTag(randomNumbers.get(rnd));
+            randomNumbers.remove(rnd);
+        }
+    }
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(hasFocus){
+            SavePositions();
+        }
+    }
+    /*
+    bu metodu dokunma islemleri icin olusturdum. Dokundugum objenin tasinmasini sagliyorum
+     */
+    @SuppressLint("ClickableViewAccessibility") //touch mekanikleri için ekletmeyi zorunlu tuttu?
+    public void MoveObjects(@NonNull ImageView imageView){
+        imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                switch (event.getActionMasked()){
+                    //kullanici parmagini tasinacak objenin uzerine getirdiginde calisacak
+                    case MotionEvent.ACTION_DOWN:
+                        xPos = event.getX(); //kullanicidan dokundugu yerdeki x degerini aldik
+                        yPos = event.getY(); //kullanicidan dokundugu yerdeki y degerini aldik
+                        break;
+
+                    //kullanici objeyi hareket ettirdiginde calisacak
+                    case MotionEvent.ACTION_MOVE:
+                        float movedX,movedY;
+                        movedX = event.getX(); //kullanicidan tasidigi yerdeki x degerini aldik
+                        movedY = event.getY(); //kullanicidan tasidigi yerdeki y degerini aldik
+                        float distanceX,distanceY;
+                        distanceX = movedX-xPos; //objeyi x ekseninde ne kadar hareket ettirdigini bulduk
+                        distanceY = movedY-yPos; // objeyi y ekseninde ne kadar hareket ettirdigini bulduk
+
+                        imageView.setX(imageView.getX()+distanceX);//objenin ilk x konumuna tasidigi kadarlik kismi ekledik
+                        imageView.setY(imageView.getY()+distanceY); //objenin ilk y konumuna tasidigi kadarlik kismi ekledik.
+                        break;
+
+                    //kullanici objeden parmagini cektiginde calisacak
+                    case MotionEvent.ACTION_UP:
+                        CheckMatches(imageView);
+                        if(winCount == 4){
+                            nextButton.setAlpha(1f);
+                            nextButton.setEnabled(true);
+                            confetti.setAlpha(1f);
+                            confetti.playAnimation();
+                            confettiSound.start();
+                            clapSound.start();
+                            winCount = 0;
+                        }
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+    void CheckMatches(ImageView imageView){
+    for(ImageView x : matchingCards){
+        if(x.getTag().equals(imageView.getTag()))
+        {
+            float xDistance = imageView.getX()-x.getX();
+            float yDistance = imageView.getY()-x.getY();
+            float absX = Math.abs(Math.round(xDistance/10)*10);
+            float absY = Math.abs(Math.round(yDistance/10)*10);
+            if(absX<20f || absY<20f){
+                imageView.setEnabled(false);
+                imageView.setX(x.getX());
+                imageView.setY(x.getY());
+                winCount++;
+            }else{
+                Log.d("denemee","absX: "+ absX);
+                Log.d("denemee","absY: "+ absY);
+            }
+        }
+    }
+}
+    void SavePositions(){
+        for (ImageView x : cards){
+            xPositions.add(x.getX());
+            yPositions.add(x.getY());
+        }
+    }
+    void ResetPositions(){
+        for(int i = 0; i<cards.size();i++){
+            cards.get(i).setX(xPositions.get(i));
+            cards.get(i).setY(yPositions.get(i));
+            cards.get(i).setEnabled(true);
+        }
+    }
     void FindObjects(){
         background = findViewById(R.id.background);
         nextButton = findViewById(R.id.next_button);
@@ -91,24 +204,6 @@ public class MatchingGameActivity extends AppCompatActivity {
         match_card_two = findViewById(R.id.match_card_two);
         match_card_three = findViewById(R.id.match_card_three);
         match_card_four = findViewById(R.id.match_card_four);
-    }
-    void GetImages(){
-        if(images.size() == 0){
-            AddImages();
-            AddMatchImages();
-        }
-        for ( ImageView x : cards) {
-            int rnd = random.nextInt(images.size());
-            x.setImageResource(images.get(rnd));
-            randomNumbers.add(matchImages.get(rnd));
-            images.remove(rnd);
-            matchImages.remove(rnd);
-        }
-        for( ImageView x : matchingCards){
-            int rnd = random.nextInt(randomNumbers.size());
-            x.setImageResource(randomNumbers.get(rnd));
-            randomNumbers.remove(rnd);
-        }
     }
     void AddMatchImages(){
         matchImages.add(R.drawable.circle);
@@ -173,60 +268,5 @@ public class MatchingGameActivity extends AppCompatActivity {
         cards.add(card_two);
         cards.add(card_three);
         cards.add(card_four);
-    }
-
-    /*
-    bu metodu dokunma islemleri icin olusturdum. Dokundugum objenin tasinmasini sagliyorum
-     */
-    @SuppressLint("ClickableViewAccessibility") //touch mekanikleri için ekletmeyi zorunlu tuttu?
-    public void MoveObjects(@NonNull ImageView imageView){
-        imageView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                switch (event.getActionMasked()){
-                    //kullanici parmagini tasinacak objenin uzerine getirdiginde calisacak
-                    case MotionEvent.ACTION_DOWN:
-                        xPos = event.getX(); //kullanicidan dokundugu yerdeki x degerini aldik
-                        yPos = event.getY(); //kullanicidan dokundugu yerdeki y degerini aldik
-                        break;
-
-                    //kullanici objeyi hareket ettirdiginde calisacak
-                    case MotionEvent.ACTION_MOVE:
-                        float movedX,movedY;
-                        movedX = event.getX(); //kullanicidan tasidigi yerdeki x degerini aldik
-                        movedY = event.getY(); //kullanicidan tasidigi yerdeki y degerini aldik
-                        float distanceX,distanceY;
-                        distanceX = movedX-xPos; //objeyi x ekseninde ne kadar hareket ettirdigini bulduk
-                        distanceY = movedY-yPos; // objeyi y ekseninde ne kadar hareket ettirdigini bulduk
-
-                        imageView.setX(imageView.getX()+distanceX);//objenin ilk x konumuna tasidigi kadarlik kismi ekledik
-                        imageView.setY(imageView.getY()+distanceY); //objenin ilk y konumuna tasidigi kadarlik kismi ekledik.
-                        break;
-
-                    //kullanici objeden parmagini cektiginde calisacak
-                    case MotionEvent.ACTION_UP:
-                        for(ImageView x : matchingCards){
-                          /*  if(imageView.getTag().equals(x.getTag())){
-                                float xDistance = imageView.getX()-x.getX();
-                                float yDistance = imageView.getY()-x.getY();
-                                float absX = Math.abs(Math.round(xDistance/10)*10);
-                                float absY = Math.abs(Math.round(yDistance/10)*10);
-                                if(absX<20f || absY<20f){
-                                    imageView.setEnabled(false);
-                                    imageView.setX(x.getX());
-                                    imageView.setY(x.getY());
-                                }else{
-                                    Log.d("denemee","absX: "+ absX);
-                                    Log.d("denemee","absY: "+ absY);
-                                }
-                            }
-
-                           */
-                        }
-                            break;
-                }
-                return true;
-            }
-        });
     }
 }
