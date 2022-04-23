@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,15 +20,20 @@ import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MatchingGameActivity extends AppCompatActivity {
     Main main = new Main();
+
     ImageView card_one,card_two,card_three,card_four;
     ImageView match_card_one,match_card_two,match_card_three,match_card_four;
     LottieAnimationView confetti, background;
     ImageButton nextButton,backButton;
+
     Random random = new Random();
     MediaPlayer confettiSound,clapSound;
+
     float xPos = 0,yPos = 0;
 
     ArrayList<Integer> images = new ArrayList<>();
@@ -34,8 +42,7 @@ public class MatchingGameActivity extends AppCompatActivity {
     ArrayList<ImageView> matchingCards = new ArrayList<>();
     ArrayList<Integer> randomNumbers = new ArrayList<>();
 
-    @SuppressLint({"ClickableViewAccessibility"})
-    //touch mekanikleri için ekletmeyi zorunlu tuttu?
+    @SuppressLint({"ClickableViewAccessibility"}) //touch mekanikleri için ekletmeyi zorunlu tuttu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +60,6 @@ public class MatchingGameActivity extends AppCompatActivity {
         AddCards();
         AddMatchingCards();
         GetImages();
-
         for (ImageView x : cards) MoveObjects(x);
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +78,7 @@ public class MatchingGameActivity extends AppCompatActivity {
             }
         });
     }
+
     void FindObjects(){
         background = findViewById(R.id.background);
         nextButton = findViewById(R.id.next_button);
@@ -90,23 +97,17 @@ public class MatchingGameActivity extends AppCompatActivity {
             AddImages();
             AddMatchImages();
         }
-        int i = 0;
         for ( ImageView x : cards) {
             int rnd = random.nextInt(images.size());
             x.setImageResource(images.get(rnd));
-            x.setTag( i + "shape");
             randomNumbers.add(matchImages.get(rnd));
             images.remove(rnd);
             matchImages.remove(rnd);
-            i++;
         }
-        i = 0;
         for( ImageView x : matchingCards){
             int rnd = random.nextInt(randomNumbers.size());
             x.setImageResource(randomNumbers.get(rnd));
-            x.setTag( i + "shape");
             randomNumbers.remove(rnd);
-            i++;
         }
     }
     void AddMatchImages(){
@@ -173,6 +174,7 @@ public class MatchingGameActivity extends AppCompatActivity {
         cards.add(card_three);
         cards.add(card_four);
     }
+
     /*
     bu metodu dokunma islemleri icin olusturdum. Dokundugum objenin tasinmasini sagliyorum
      */
@@ -199,15 +201,29 @@ public class MatchingGameActivity extends AppCompatActivity {
 
                         imageView.setX(imageView.getX()+distanceX);//objenin ilk x konumuna tasidigi kadarlik kismi ekledik
                         imageView.setY(imageView.getY()+distanceY); //objenin ilk y konumuna tasidigi kadarlik kismi ekledik.
+                        break;
 
-                        break;
-                    case MotionEvent.ACTION_UP: //kullanici objeden parmagini cektiginde calisacak
-                       /*
-                       objelerin taglerini ayarladım.
-                       parmağını çektiği yerdeki objeyi tespit edip tagleri eşitse ve birbirlerine yakınlarsa
-                       doğru yapmış olacak
-                        */
-                        break;
+                    //kullanici objeden parmagini cektiginde calisacak
+                    case MotionEvent.ACTION_UP:
+                        for(ImageView x : matchingCards){
+                          /*  if(imageView.getTag().equals(x.getTag())){
+                                float xDistance = imageView.getX()-x.getX();
+                                float yDistance = imageView.getY()-x.getY();
+                                float absX = Math.abs(Math.round(xDistance/10)*10);
+                                float absY = Math.abs(Math.round(yDistance/10)*10);
+                                if(absX<20f || absY<20f){
+                                    imageView.setEnabled(false);
+                                    imageView.setX(x.getX());
+                                    imageView.setY(x.getY());
+                                }else{
+                                    Log.d("denemee","absX: "+ absX);
+                                    Log.d("denemee","absY: "+ absY);
+                                }
+                            }
+
+                           */
+                        }
+                            break;
                 }
                 return true;
             }
