@@ -36,84 +36,38 @@
         app:srcCompat="@drawable/next_button" />
 
     <ImageView
-        android:id="@+id/card_one"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="32dp"
-        android:background="@null"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174"
-        app:srcCompat="@drawable/fill_circle" />
-
-    <ImageView
-        android:id="@+id/card_two"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="124dp"
-        android:background="@null"
-        app:layout_constraintEnd_toEndOf="@+id/card_three"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/card_one"
-        app:layout_constraintTop_toTopOf="@+id/card_one"
-        app:srcCompat="@drawable/fill_cone" />
-
-    <ImageView
-        android:id="@+id/card_three"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="4dp"
-        android:background="@null"
-        app:layout_constraintStart_toEndOf="@+id/card_one"
-        app:layout_constraintTop_toTopOf="@+id/card_one"
-        app:srcCompat="@drawable/fill_cubes" />
-
-    <ImageView
-        android:id="@+id/card_four"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="132dp"
-        android:background="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toEndOf="@+id/card_two"
-        app:layout_constraintTop_toTopOf="@+id/card_three"
-        app:srcCompat="@drawable/fill_diamond" />
-
-    <ImageView
         android:id="@+id/match_card_one"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="48dp"
         android:background="@null"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/match_card_three"
+        app:layout_constraintStart_toStartOf="@+id/card_one"
+        app:layout_constraintTop_toBottomOf="@+id/card_two"
         app:srcCompat="@drawable/circle" />
 
     <ImageView
         android:id="@+id/match_card_two"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginTop="44dp"
         android:background="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/match_card_three"
+        app:layout_constraintEnd_toEndOf="@+id/match_card_three"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/match_card_four"
+        app:layout_constraintTop_toBottomOf="@+id/match_card_three"
         app:srcCompat="@drawable/cone" />
 
     <ImageView
         android:id="@+id/match_card_four"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="140dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginEnd="136dp"
         android:background="@null"
-        app:layout_constraintEnd_toStartOf="@+id/match_card_two"
+        app:layout_constraintEnd_toEndOf="@+id/match_card_three"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/match_card_one"
         app:layout_constraintTop_toTopOf="@+id/match_card_one"
         app:srcCompat="@drawable/diamond" />
 
@@ -122,13 +76,61 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="96dp"
         android:background="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.747"
+        app:layout_constraintEnd_toEndOf="@+id/card_four"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/match_card_one"
-        app:layout_constraintTop_toBottomOf="@+id/card_two"
+        app:layout_constraintTop_toTopOf="@+id/match_card_one"
         app:srcCompat="@drawable/cubes" />
+
+    <ImageView
+        android:id="@+id/card_four"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="132dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="@+id/card_three"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/card_two"
+        app:layout_constraintTop_toTopOf="@+id/card_three"
+        app:srcCompat="@drawable/fill_diamond" />
+
+    <ImageView
+        android:id="@+id/card_one"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.199"
+        app:srcCompat="@drawable/fill_circle" />
+
+    <ImageView
+        android:id="@+id/card_two"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="@+id/card_one"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/card_one"
+        app:layout_constraintTop_toBottomOf="@+id/card_one"
+        app:srcCompat="@drawable/fill_cone" />
+
+    <ImageView
+        android:id="@+id/card_three"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="88dp"
+        android:background="@null"
+        app:layout_constraintStart_toEndOf="@+id/card_one"
+        app:layout_constraintTop_toTopOf="@+id/card_one"
+        app:srcCompat="@drawable/fill_cubes" />
 
     <ImageButton
         android:id="@+id/backButton"
@@ -154,7 +156,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:lottie_autoPlay="false"
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/anim_confetti2" />

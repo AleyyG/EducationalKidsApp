@@ -167,14 +167,11 @@ public class MatchingGameActivity extends AppCompatActivity {
             float yDistance = imageView.getY()-x.getY();
             float absX = Math.abs(Math.round(xDistance/10)*10);
             float absY = Math.abs(Math.round(yDistance/10)*10);
-            if(absX<20f || absY<20f){
+            if(absX<8f || absY<2f){
                 imageView.setEnabled(false);
                 imageView.setX(x.getX());
                 imageView.setY(x.getY());
                 winCount++;
-            }else{
-                Log.d("denemee","absX: "+ absX);
-                Log.d("denemee","absY: "+ absY);
             }
         }
     }
