@@ -3,10 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/guney/AndroidStudioProjects/FirstGame/app/src/main/res/layout/activity_alphabet_game.xml" value="0.1" />
         <entry key="..\:/Users/guney/AndroidStudioProjects/FirstGame/app/src/main/res/layout/activity_animal_game.xml" value="0.1" />
         <entry key="..\:/Users/guney/AndroidStudioProjects/FirstGame/app/src/main/res/layout/activity_color_game.xml" value="0.264" />
         <entry key="..\:/Users/guney/AndroidStudioProjects/FirstGame/app/src/main/res/layout/activity_food_game.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/guney/AndroidStudioProjects/FirstGame/app/src/main/res/layout/activity_game.xml" value="0.1" />
+        <entry key="..\:/Users/guney/AndroidStudioProjects/FirstGame/app/src/main/res/layout/activity_game.xml" value="0.264" />
         <entry key="..\:/Users/guney/AndroidStudioProjects/FirstGame/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/guney/AndroidStudioProjects/FirstGame/app/src/main/res/layout/activity_matching_game.xml" value="0.16" />
         <entry key="..\:/Users/guney/AndroidStudioProjects/FirstGame/app/src/main/res/layout/activity_math_game.xml" value="0.259927797833935" />
@@ -15,7 +16,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="openjdk-17 (2)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="openjdk-17 (2)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

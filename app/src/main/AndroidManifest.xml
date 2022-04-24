@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".MatchingGameActivity"></activity>
+        <activity
+            android:name=".AlphabetGameActivity"
+            android:exported="false" />
+        <activity android:name=".MatchingGameActivity" />
         <activity android:name=".AnimalGameActivity" />
         <activity android:name=".MathGameActivity" />
         <activity android:name=".NumberGameActivity" />

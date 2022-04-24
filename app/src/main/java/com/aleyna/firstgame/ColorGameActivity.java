@@ -51,7 +51,7 @@ public class ColorGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent gameScene = new Intent(ColorGameActivity.this,GameActivity.class); //yeni bir sahne gecisi olusturuyorum, bu sahneden gameActivity sahnesine gececek
-                startActivity((gameScene)); //sonrada olusturdugum bu ıntenti baslatiyorum
+                startActivity(gameScene); //sonrada olusturdugum bu ıntenti baslatiyorum
             }
         });
     }

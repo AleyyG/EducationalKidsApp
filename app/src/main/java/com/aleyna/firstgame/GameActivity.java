@@ -22,7 +22,15 @@ public class GameActivity extends AppCompatActivity {
         final LottieAnimationView mathGame = findViewById(R.id.mathGame);
         final LottieAnimationView animalGame = findViewById(R.id.animalGame);
         final LottieAnimationView matchingGame = findViewById(R.id.matchingGame);
+        final LottieAnimationView alphabetGame = findViewById(R.id.alphabetGame);
 
+        alphabetGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent alphabetGameScene = new Intent(GameActivity.this,AlphabetGameActivity.class);
+                startActivity(alphabetGameScene);
+            }
+        });
         matchingGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
