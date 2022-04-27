@@ -6,14 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".NumberGameActivity">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="296dp"
-        android:text="Number Game"
-        android:textSize="60sp"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/background"
+        android:layout_width="415dp"
+        android:layout_height="732dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/night_background"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/numberButton"
+        android:layout_width="306dp"
+        android:layout_height="447dp"
+        android:background="@null"
+        android:contentDescription="@string/description"
+        android:scaleType="centerInside"
+        android:src="@drawable/one_number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.411"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <ImageButton
+        android:id="@+id/next_button"
+        android:layout_width="363dp"
+        android:layout_height="151dp"
+        android:background="@null"
+        android:contentDescription="@string/description"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.972"
+        app:srcCompat="@drawable/next_button" />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="166dp"
+        android:layout_height="119dp"
+        android:background="@null"
+        android:contentDescription="@string/description"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

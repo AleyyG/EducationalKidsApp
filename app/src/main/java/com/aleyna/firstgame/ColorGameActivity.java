@@ -42,7 +42,7 @@ public class ColorGameActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() { //next butona bastiginda olmasi gerekenleri yazacagim.
             @Override
             public void onClick(View view) { //onClick metotlari tikladiginda olmasi gerekenlerin gerceklesmesi gereken butonlar.
-                int randNumber = random.nextInt(11); // butona her tiklandiginde 0 ile 11 arasinda sayi urettiriyorum
+                int randNumber = random.nextInt(colorRes.size()); // butona her tiklandiginde 0 ile 11 arasinda sayi urettiriyorum
                 RandomCards(randNumber,colorButton); // olusturdugum metoda sayiyi ve tıkladigim colorButtonu gonderiyorum
             }
         });
