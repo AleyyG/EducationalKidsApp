@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/background"
         android:layout_width="449dp"
@@ -14,18 +15,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.507"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/gradient_background"
         tools:ignore="MissingConstraints" />
 
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/colorGame"
         android:layout_width="156dp"
         android:layout_height="156dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="88dp"
         android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background"
@@ -37,11 +38,13 @@
         android:id="@+id/numbersGame"
         android:layout_width="156dp"
         android:layout_height="156dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
         android:background="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toEndOf="@+id/colorGame"
-        app:layout_constraintTop_toTopOf="@+id/colorGame"
+        app:layout_constraintEnd_toEndOf="@+id/alphabetGame"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/animalGame"
+        app:layout_constraintTop_toBottomOf="@+id/alphabetGame"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/number_game_anim" />
@@ -50,10 +53,12 @@
         android:id="@+id/mathGame"
         android:layout_width="156dp"
         android:layout_height="156dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
         android:background="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/animalGame"
+        app:layout_constraintEnd_toEndOf="@+id/numbersGame"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/matchingGame"
         app:layout_constraintTop_toBottomOf="@+id/numbersGame"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
@@ -63,10 +68,9 @@
         android:id="@+id/animalGame"
         android:layout_width="156dp"
         android:layout_height="156dp"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="36dp"
         android:background="@null"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/colorGame"
         app:layout_constraintTop_toBottomOf="@+id/colorGame"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
@@ -76,9 +80,8 @@
         android:id="@+id/matchingGame"
         android:layout_width="156dp"
         android:layout_height="156dp"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="36dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/animalGame"
         app:layout_constraintTop_toBottomOf="@+id/animalGame"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
@@ -88,14 +91,11 @@
         android:id="@+id/alphabetGame"
         android:layout_width="156dp"
         android:layout_height="156dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/matchingGame"
-        app:layout_constraintTop_toBottomOf="@+id/mathGame"
+        app:layout_constraintStart_toEndOf="@+id/colorGame"
+        app:layout_constraintTop_toTopOf="@+id/colorGame"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/match_game_anim" />
+        app:lottie_rawRes="@raw/alphabet_game_anim" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
