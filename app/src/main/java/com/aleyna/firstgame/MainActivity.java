@@ -10,12 +10,21 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton playButton; //design ekraninda olan buttonlarimi java uzerinde tanimliyorum
+    ImageButton playButton,snakeButton; //design ekraninda olan buttonlarimi java uzerinde tanimliyorum
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         playButton = findViewById(R.id.playButton); //butonumun yerini kod uzerinden acilis metodunda bulduruyorum
+        snakeButton = findViewById(R.id.snakeGame);
+
+        snakeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent snakeGame = new Intent(MainActivity.this,SnakeGameActivity.class);
+                startActivity(snakeGame);
+            }
+        });
 
     }
 

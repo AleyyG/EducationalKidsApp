@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity
+            android:name=".SnakeGameActivity"
+            android:exported="false" />
+        <activity
             android:name=".AlphabetGameActivity"
             android:exported="false" />
         <activity android:name=".MatchingGameActivity" />
