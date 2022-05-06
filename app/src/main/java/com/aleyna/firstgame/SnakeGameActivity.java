@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -12,6 +13,7 @@ import java.util.TimerTask;
 public class SnakeGameActivity extends AppCompatActivity {
 
     ImageButton backButton,restartButton;
+    TextView scoreText;
     SnakeGame snakeGame;
     final int FPS = 5;
 
@@ -39,11 +41,25 @@ public class SnakeGameActivity extends AppCompatActivity {
         backButton = findViewById(R.id.back_button);
         restartButton = findViewById(R.id.restart_button);
         snakeGame = findViewById(R.id.snakeGameView);
+        scoreText = findViewById(R.id.score);
         timer.scheduleAtFixedRate(timerTask,10,1000/FPS);
+
+        snakeGame.setGameUpdateListener(new SnakeGame.GameUpdateListener() {
+            @Override
+            public void onScoreUpdate(int score) {
+                scoreText.setText(String.valueOf(score*25));
+            }
+
+            @Override
+            public void onGameOver(int score) {
+
+            }
+        });
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                scoreText.setText(String.valueOf(0));
+                snakeGame.restart();
             }
         });
     }
