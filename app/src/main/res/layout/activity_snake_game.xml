@@ -32,15 +32,14 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:layout_marginLeft="85dp"
-            android:layout_toRightOf="@+id/back_button"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
             android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="110dp"
+            android:layout_toRightOf="@+id/back_button"
             android:fontFamily="@font/candy_beans"
-            android:text="200000"
+            android:text="0"
             android:textSize="30sp" />
 
         <ImageButton
