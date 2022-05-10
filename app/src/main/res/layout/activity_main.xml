@@ -40,16 +40,29 @@
 
     <ImageButton
         android:id="@+id/snakeGame"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_marginTop="28dp"
-        android:scaleType="centerInside"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:background="@null"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.775"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/settings"
+        app:srcCompat="@drawable/snake"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/settings"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playButton"
-        app:srcCompat="@drawable/animal_snake"
+        app:srcCompat="@drawable/setting"
         tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

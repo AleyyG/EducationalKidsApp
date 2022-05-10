@@ -3,6 +3,7 @@ package com.aleyna.firstgame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -81,7 +82,8 @@ public class SnakeGameActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent main = new Intent(SnakeGameActivity.this,SnakeGameActivity.class);
+                startActivity(main);
             }
         });
     }
