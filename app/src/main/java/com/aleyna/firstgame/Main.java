@@ -21,7 +21,40 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Main extends AppCompatActivity {
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
+    public void StudyTimer(Context context){
+
+        sharedPreferences = context.getSharedPreferences("com.aleyna.firstgame",Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                //sharedPreferences.edit().remove("second").commit();
+                int timeSecond = sharedPreferences.getInt("second",0);
+                int minute = sharedPreferences.getInt("minute",0);
+                timeSecond++;
+                editor.putInt("second",timeSecond).apply();
+                if(timeSecond%60==0){
+                    minute++;
+                    editor.putInt("minute",minute).apply();
+                    Log.e("denemee","minute: " + String.valueOf(minute));
+                }
+                if(minute==2){
+                    minute = 0;
+                    timeSecond = 0;
+                    sharedPreferences.edit().remove("second").commit();
+                    sharedPreferences.edit().remove("minute").commit();
+                    timer.cancel();
+                }
+                Log.e("denemee","second: " + String.valueOf(timeSecond));
+            }
+        };
+        timer.schedule(timerTask,0,1000); //saniyeyi olcmus oluyor.
+    }
 
 
     public void ChangeBackground(LottieAnimationView background) { //her sahnede arka plan böyle olacaginden dolayi burayi bu sekilde yaptim.

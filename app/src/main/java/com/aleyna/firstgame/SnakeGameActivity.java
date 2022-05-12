@@ -44,8 +44,10 @@ public class SnakeGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_snake_game);
+
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+
         backButton = findViewById(R.id.back_button);
         restartButton = findViewById(R.id.restart_button);
         snakeGame = findViewById(R.id.snakeGameView);
@@ -68,7 +70,7 @@ public class SnakeGameActivity extends AppCompatActivity {
 
             @Override
             public void onGameOver(int score) {
-
+                //oyun bittiginde olacaklar
             }
         });
         restartButton.setOnClickListener(new View.OnClickListener() {

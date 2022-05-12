@@ -45,8 +45,7 @@
         android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.775"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/settings"
         app:layout_constraintTop_toTopOf="@+id/settings"
         app:srcCompat="@drawable/snake"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -59,8 +58,8 @@
         android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.288"
+        app:layout_constraintStart_toStartOf="@+id/playButton"
         app:layout_constraintTop_toBottomOf="@+id/playButton"
         app:srcCompat="@drawable/setting"
         tools:ignore="SpeakableTextPresentCheck" />

@@ -2,15 +2,20 @@ package com.aleyna.firstgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class AlphabetGameActivity extends AppCompatActivity {
     Main main = new Main();
@@ -19,6 +24,7 @@ public class AlphabetGameActivity extends AppCompatActivity {
     ArrayList<Integer> letterRes = new ArrayList<>();
     ArrayList<Integer> letterSoundsRes = new ArrayList<>();
     int counter = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +40,8 @@ public class AlphabetGameActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this,R.raw.letter_a);
         AddLetterSounds();
         AddLetterResources();
+        main.StudyTimer(getBaseContext());
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +71,21 @@ public class AlphabetGameActivity extends AppCompatActivity {
         letterButton.setImageResource(letterRes.get(counter));
         counter++;
     }
+   /* public void StudyTimer(){
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                int timeSecond = sharedPreferences.getInt("alphabetSecond",0);
+                timeSecond++;
+                editor.putInt("alphabetSecond",timeSecond).apply();
+                Log.e("denemee","second: " + String.valueOf(timeSecond));
+            }
+        };
+        timer.schedule(timerTask,0,1000); //saniyeyi olcmus oluyor.
+    }
+
+    */
     public void AddLetterSounds(){
         letterSoundsRes.add(R.raw.letter_a);
         letterSoundsRes.add(R.raw.letter_b);

@@ -2,6 +2,7 @@ package com.aleyna.firstgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
-
+    Main main = new Main();
+    Context context;
     ImageButton playButton,snakeButton; //design ekraninda olan buttonlarimi java uzerinde tanimliyorum
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         playButton = findViewById(R.id.playButton); //butonumun yerini kod uzerinden acilis metodunda bulduruyorum
         snakeButton = findViewById(R.id.snakeGame);
-
+        context = this;
+        main.StudyTimer(this);
         snakeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

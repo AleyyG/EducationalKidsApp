@@ -10,7 +10,5 @@ public class Food {
         this.y = y;
         this.scale = scale;
     }
-    void show(Canvas canvas, Paint paint){
-        canvas.drawRect(x,y,x+scale,y+scale,paint);
-    }
+    void show(Canvas canvas, Paint paint){ canvas.drawRect(x,y,x+scale,y+scale,paint);}
 }

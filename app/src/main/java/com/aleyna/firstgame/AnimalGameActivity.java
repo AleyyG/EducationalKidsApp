@@ -1,7 +1,9 @@
 package com.aleyna.firstgame;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,7 @@ import java.util.Random;
 
 public class AnimalGameActivity extends AppCompatActivity {
     Main main = new Main();
+
     ImageButton backGameScene,animalButton,nextButton;
     Random random = new Random();
     MediaPlayer mediaPlayer;
@@ -28,13 +31,15 @@ public class AnimalGameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_animal_game);
+        setContentView(R.layout.activity_animal_game);;
+
         backGameScene = findViewById(R.id.backButton);
         animalButton = findViewById(R.id.animalButton);
         nextButton = findViewById(R.id.next_button);
         mediaPlayer = MediaPlayer.create(this,R.raw.butterfly_sound);
         final  LottieAnimationView background = findViewById(R.id.background);
         main.ChangeBackground(background);
+
         AddAnimalRes();
         AddAnimalSounds();
         //next butona bastiginda olmasi gerekenleri yazacagim.

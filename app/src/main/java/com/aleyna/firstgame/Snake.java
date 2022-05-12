@@ -73,7 +73,6 @@ public class Snake {
                 GameOver();
                 return true;
             }
-
         }
         return false;
     }
