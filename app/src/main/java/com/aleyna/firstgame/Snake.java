@@ -64,6 +64,9 @@ public class Snake {
     }
     void GameOver(){
         isGameOver = true;
+        if(snakeStatusUpdate!=null){
+            snakeStatusUpdate.onGameOver(total);
+        }
         return;
     }
     public boolean snakeDeath(){

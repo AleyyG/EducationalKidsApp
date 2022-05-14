@@ -11,7 +11,7 @@
         android:id="@+id/topLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/white"
+        android:background="@color/darkolivegreen"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,11 +21,11 @@
         tools:ignore="MissingConstraints">
 
         <ImageButton
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="32dp"
             android:id="@+id/back_button"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
             android:background="@null"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/back"
@@ -36,22 +36,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="110dp"
+            android:layout_marginLeft="105dp"
             android:layout_toRightOf="@+id/back_button"
             android:fontFamily="@font/candy_beans"
+            android:textColor="@color/green"
+            android:visibility="visible"
             android:text="0"
+            android:textSize="30sp" />
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="100dp"
+            android:layout_toRightOf="@+id/back_button"
+            android:fontFamily="@font/candy_beans"
+            android:textColor="@color/tomato"
+            android:visibility="invisible"
+            android:textAlignment="center"
+            android:text="Your rest time is over."
             android:textSize="30sp" />
 
         <ImageButton
-            android:layout_marginRight="32dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:id="@+id/restart_button"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="32dp"
             android:background="@null"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/back"
+            app:srcCompat="@drawable/retry"
             tools:ignore="SpeakableTextPresentCheck" />
     </RelativeLayout>
 

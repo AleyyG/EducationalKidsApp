@@ -24,8 +24,30 @@ public class Main extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
-    public void StudyTimer(Context context){
+    public int getMinute(Context context){
+        sharedPreferences = context.getSharedPreferences("com.aleyna.firstgame",Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        int minute = sharedPreferences.getInt("minute",0);
+        return minute;
+    }
+    public int getSnakeMinute(Context context){
+        sharedPreferences = context.getSharedPreferences("com.aleyna.firstgame",Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        int minute = sharedPreferences.getInt("snakeMinute",0);
+        return minute;
+    }
+    public void ResetMinute(Context context){
+        sharedPreferences = context.getSharedPreferences("com.aleyna.firstgame",Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.remove("minute").commit();
+    }
+    public void ResetSnakeMinute(Context context){
+        sharedPreferences = context.getSharedPreferences("com.aleyna.firstgame",Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.remove("snakeMinute").commit();
+    }
 
+    public void StudyTimer(Context context){
         sharedPreferences = context.getSharedPreferences("com.aleyna.firstgame",Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
@@ -33,24 +55,56 @@ public class Main extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                //sharedPreferences.edit().remove("second").commit();
+                editor.remove("second").commit(); //burasi yorum satirina alinacak
+                editor.remove("minute").commit(); //burasi yorum satirina alinacak
                 int timeSecond = sharedPreferences.getInt("second",0);
                 int minute = sharedPreferences.getInt("minute",0);
-                timeSecond++;
-                editor.putInt("second",timeSecond).apply();
-                if(timeSecond%60==0){
-                    minute++;
-                    editor.putInt("minute",minute).apply();
-                    Log.e("denemee","minute: " + String.valueOf(minute));
-                }
                 if(minute==2){
-                    minute = 0;
-                    timeSecond = 0;
-                    sharedPreferences.edit().remove("second").commit();
-                    sharedPreferences.edit().remove("minute").commit();
+                    editor.remove("second").commit();
                     timer.cancel();
+                }else{
+                    timeSecond++;
+                    editor.putInt("second",timeSecond).apply();
+                    if(timeSecond%60==0){
+                        minute++;
+                        editor.putInt("minute",minute).apply();
+                        Log.e("denemee","minute: " + String.valueOf(minute));
+                    }
+                    Log.e("denemee","second: " + String.valueOf(timeSecond));
                 }
-                Log.e("denemee","second: " + String.valueOf(timeSecond));
+
+            }
+        };
+        timer.schedule(timerTask,0,1000); //saniyeyi olcmus oluyor.
+    }
+    public void SnakeTimer(Context context){
+        sharedPreferences = context.getSharedPreferences("com.aleyna.firstgame",Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                editor.remove("snakeSecond").commit(); //burasi yorum satirina alinacak
+                editor.remove("snakeMinute").commit(); //burasi yorum satirina alinacak
+                int timeSecond = sharedPreferences.getInt("snakeSecond",0);
+                int minute = sharedPreferences.getInt("snakeMinute",0);
+
+                if(minute==2){
+                    editor.remove("snakeSecond").commit();
+                    timer.cancel();
+                    Log.e("denemee","snakeMinute: " + String.valueOf(minute));
+                    Log.e("denemee","snakeSecond: " + String.valueOf(timeSecond));
+                }else{
+                    timeSecond++;
+                    editor.putInt("snakeSecond",timeSecond).apply();
+                    if(timeSecond%60==0){
+                        minute++;
+                        editor.putInt("snakeMinute",minute).apply();
+                        Log.e("denemee","snakeMinute: " + String.valueOf(minute));
+                    }
+                    Log.e("denemee","snakeSecond: " + String.valueOf(timeSecond));
+                }
             }
         };
         timer.schedule(timerTask,0,1000); //saniyeyi olcmus oluyor.
