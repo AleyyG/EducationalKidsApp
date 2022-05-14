@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         snakeButton = findViewById(R.id.snakeGame);
         info = findViewById(R.id.info);
         context = this;
-        main.StudyTimer(this);
+
+        main.StudyTimer(context);
+
         snakeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
                     Intent snakeGame = new Intent(MainActivity.this,SnakeGameActivity.class);
                     startActivity(snakeGame);
                     main.SnakeTimer(context);
+                    snakeButton.setImageResource(R.drawable.snake_noti);
                 }else{
                     info.setVisibility(View.VISIBLE);
+                    snakeButton.setImageResource(R.drawable.snake);
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {

@@ -2,15 +2,20 @@ package com.aleyna.firstgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 
 public class GameActivity extends AppCompatActivity {
+    Main main = new Main();
+    Context context;
+    ImageButton backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,21 @@ public class GameActivity extends AppCompatActivity {
         final LottieAnimationView animalGame = findViewById(R.id.animalGame);
         final LottieAnimationView matchingGame = findViewById(R.id.matchingGame);
         final LottieAnimationView alphabetGame = findViewById(R.id.alphabetGame);
+        backButton = findViewById(R.id.backButton);
+        context = this;
+
+        if(main.getMinute(context)==2)
+            backButton.setImageResource(R.drawable.reply_noti);
+        else
+            backButton.setImageResource(R.drawable.reply);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mainScene = new Intent(GameActivity.this,MainActivity.class);
+                startActivity(mainScene);
+            }
+        });
 
         alphabetGame.setOnClickListener(new View.OnClickListener() {
             @Override
