@@ -1,15 +1,22 @@
 package com.aleyna.firstgame;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     Main main = new Main();
@@ -27,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         context = this;
 
         main.StudyTimer(context);
+
+        Intent service = new Intent(MainActivity.this,BackgroundSoundService.class);
+        startService(service);
 
         snakeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +58,26 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void playClick(View view) { //butonlarimda onClick oldugundan dolayi click metodlarini olusturuyorum.
         Intent gameScene = new Intent(this,GameActivity.class);
         startActivity(gameScene);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent service = new Intent(MainActivity.this,BackgroundSoundService.class);
+        startService(service);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent service = new Intent(MainActivity.this,BackgroundSoundService.class);
+        stopService(service);
+    }
+
 
 }

@@ -31,7 +31,7 @@ public class NumberGameActivity extends AppCompatActivity {
         backGameScene = findViewById(R.id.backButton);
         numberButton = findViewById(R.id.numberButton);
         nextButton = findViewById(R.id.next_button);
-        mediaPlayer = MediaPlayer.create(this,R.raw.blue_sound);
+        mediaPlayer = MediaPlayer.create(this,R.raw.one_sound);
 
         final LottieAnimationView background = findViewById(R.id.background);
         main.ChangeBackground(background);

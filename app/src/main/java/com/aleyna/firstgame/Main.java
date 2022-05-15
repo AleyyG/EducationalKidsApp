@@ -68,9 +68,7 @@ public class Main extends AppCompatActivity {
                     if(timeSecond%60==0){
                         minute++;
                         editor.putInt("minute",minute).apply();
-                        Log.e("denemee","minute: " + String.valueOf(minute));
                     }
-                    Log.e("denemee","second: " + String.valueOf(timeSecond));
                 }
 
             }
@@ -93,17 +91,13 @@ public class Main extends AppCompatActivity {
                 if(minute==2){
                     editor.remove("snakeSecond").commit();
                     timer.cancel();
-                    Log.e("denemee","snakeMinute: " + String.valueOf(minute));
-                    Log.e("denemee","snakeSecond: " + String.valueOf(timeSecond));
                 }else{
                     timeSecond++;
                     editor.putInt("snakeSecond",timeSecond).apply();
                     if(timeSecond%60==0){
                         minute++;
                         editor.putInt("snakeMinute",minute).apply();
-                        Log.e("denemee","snakeMinute: " + String.valueOf(minute));
                     }
-                    Log.e("denemee","snakeSecond: " + String.valueOf(timeSecond));
                 }
             }
         };
