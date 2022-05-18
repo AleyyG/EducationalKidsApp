@@ -80,4 +80,52 @@
         app:layout_constraintHorizontal_bias="0.597"
         app:layout_constraintStart_toStartOf="@+id/settings" />
 
+    <ImageView
+        android:id="@+id/settings_panel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/playButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/playButton"
+        app:srcCompat="@drawable/frame" />
+
+    <TextView
+        android:id="@+id/settings_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:fontFamily="@font/candy_beans"
+        android:text="VOLUME SETTINGS"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="@+id/settings_panel"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/settings_panel"
+        app:layout_constraintTop_toTopOf="@+id/settings_panel" />
+
+    <SeekBar
+        android:id="@+id/music_seek"
+        android:layout_width="320dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="248dp"
+        app:layout_constraintEnd_toEndOf="@+id/settings_panel"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/settings_panel"
+        app:layout_constraintTop_toTopOf="@+id/settings_panel" />
+
+    <ImageButton
+        android:id="@+id/settings_ok"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="56dp"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="@+id/music_seek"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/music_seek"
+        app:layout_constraintTop_toBottomOf="@+id/settings_text"
+        app:srcCompat="@drawable/ok"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

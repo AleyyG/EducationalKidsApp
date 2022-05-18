@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 public class BackgroundSoundService extends Service {
 
+
     MediaPlayer mediaPlayer;
     @Nullable
     @Override
@@ -17,7 +18,6 @@ public class BackgroundSoundService extends Service {
 
         return null;
     }
-
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
