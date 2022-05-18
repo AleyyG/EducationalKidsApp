@@ -55,8 +55,8 @@ public class Main extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                editor.remove("second").commit(); //burasi yorum satirina alinacak
-                editor.remove("minute").commit(); //burasi yorum satirina alinacak
+               // editor.remove("second").commit(); //burasi yorum satirina alinacak
+              // editor.remove("minute").commit(); //burasi yorum satirina alinacak
                 int timeSecond = sharedPreferences.getInt("second",0);
                 int minute = sharedPreferences.getInt("minute",0);
                 if(minute==2){
@@ -65,9 +65,11 @@ public class Main extends AppCompatActivity {
                 }else{
                     timeSecond++;
                     editor.putInt("second",timeSecond).apply();
+                    Log.e("denemee","gameSecond:"+timeSecond);
                     if(timeSecond%60==0){
                         minute++;
                         editor.putInt("minute",minute).apply();
+                        Log.e("denemee","gameMinute:"+minute);
                     }
                 }
 
@@ -83,8 +85,8 @@ public class Main extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                editor.remove("snakeSecond").commit(); //burasi yorum satirina alinacak
-                editor.remove("snakeMinute").commit(); //burasi yorum satirina alinacak
+              //  editor.remove("snakeSecond").commit(); //burasi yorum satirina alinacak
+              //  editor.remove("snakeMinute").commit(); //burasi yorum satirina alinacak
                 int timeSecond = sharedPreferences.getInt("snakeSecond",0);
                 int minute = sharedPreferences.getInt("snakeMinute",0);
 
@@ -94,9 +96,11 @@ public class Main extends AppCompatActivity {
                 }else{
                     timeSecond++;
                     editor.putInt("snakeSecond",timeSecond).apply();
+                    Log.e("denemee","snakeSecond:"+timeSecond);
                     if(timeSecond%60==0){
                         minute++;
                         editor.putInt("snakeMinute",minute).apply();
+                        Log.e("denemee","snakeMinute:"+minute);
                     }
                 }
             }

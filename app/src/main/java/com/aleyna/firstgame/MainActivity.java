@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -23,17 +25,22 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     Main main = new Main();
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     Context context;
-    TextView info,settingsText;
+    TextView info,settingsText,highScoreText;
     ImageButton playButton,snakeButton,settingsOk,settingsButton; //design ekraninda olan buttonlarimi java uzerinde tanimliyorum
     ImageView settingsPanel;
     SeekBar musicSeek;
     AudioManager audioManager;
     Handler handler = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sharedPreferences = getSharedPreferences("com.aleyna.firstgame",Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
         int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         musicSeek.setMax(maxVolume);
         musicSeek.setProgress(currentVolume);
 
+        highScoreText = findViewById(R.id.highScore_text);
         playButton = findViewById(R.id.playButton); //butonumun yerini kod uzerinden acilis metodunda bulduruyorum
         snakeButton = findViewById(R.id.snakeGame);
         settingsButton = findViewById(R.id.settings);
@@ -52,13 +60,24 @@ public class MainActivity extends AppCompatActivity {
         settingsPanel = findViewById(R.id.settings_panel);
 
         context = this;
-
         main.StudyTimer(context); //arka planda gecirilen sureyi olcmek icin
+
+        //editor.remove("score").commit(); //burasi yorum satirina alinacak
+
+        int highScore = sharedPreferences.getInt("score",0);
+        if(highScore==0) highScoreText.setVisibility(View.INVISIBLE);
+        else{
+            highScoreText.setText("High Score: " + highScore);
+            highScoreText.setVisibility(View.VISIBLE);
+        }
 
         Intent service = new Intent(MainActivity.this,BackgroundSoundService.class);
         startService(service); //arka plan muzigi icin
 
         InvisibleSettings(); //settingPanel kapalı
+
+        if(main.getMinute(context)==2) snakeButton.setImageResource(R.drawable.snake_noti);
+        else snakeButton.setImageResource(R.drawable.snake);
         snakeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,10 +85,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent snakeGame = new Intent(MainActivity.this,SnakeGameActivity.class);
                     startActivity(snakeGame);
                     main.SnakeTimer(context);
-                    snakeButton.setImageResource(R.drawable.snake_noti);
                 }else{
                     info.setVisibility(View.VISIBLE);
-                    snakeButton.setImageResource(R.drawable.snake);
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -109,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
                 InvisibleSettings();
             }
         });
+
+
     }
 
     public void VisibleSettings(){
@@ -144,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
         Intent gameScene = new Intent(this,GameActivity.class);
         startActivity(gameScene);
     }
+
 
     @Override
     protected void onStart() {

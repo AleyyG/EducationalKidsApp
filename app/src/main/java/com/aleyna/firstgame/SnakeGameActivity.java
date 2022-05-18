@@ -51,7 +51,7 @@ public class SnakeGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_snake_game);
         context = this;
        // main.SnakeTimer(context);
-        sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        sharedPreferences =getSharedPreferences("com.aleyna.firstgame",Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         backButton = findViewById(R.id.back_button);
@@ -65,14 +65,13 @@ public class SnakeGameActivity extends AppCompatActivity {
             @Override
             public void onScoreUpdate(int score) {
                 scoreText.setText(String.valueOf(score*25));
-                editor.remove("score").commit(); //burasi yorum satirina alinacak
+               // editor.remove("score").commit(); //burasi yorum satirina alinacak
                 int highScore = sharedPreferences.getInt("score",0);
                 if(score*25>=highScore){
                     editor.putInt("score",score*25);
                     editor.apply();
                 }
                 Log.e("denemee",String.valueOf(highScore));
-
             }
 
             @Override
@@ -113,5 +112,12 @@ public class SnakeGameActivity extends AppCompatActivity {
                 startActivity(main);
             }
         });
+    }
+
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(hasFocus){
+
+        }
     }
 }
