@@ -51,9 +51,7 @@ public class AlphabetGameActivity extends AppCompatActivity {
         });
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                ChangeLetterCard();
-            }
+            public void onClick(View view) { ChangeLetterCard(); }
         });
         letterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,9 +61,7 @@ public class AlphabetGameActivity extends AppCompatActivity {
         });
     }
     public void ChangeLetterCard(){
-        if(counter == letterRes.size()){
-            counter = 0;
-        }
+        if(counter == letterRes.size()) counter = 0;
         mediaPlayer.reset();
         mediaPlayer = MediaPlayer.create(this,letterSoundsRes.get(counter));
         letterButton.setImageResource(letterRes.get(counter));
@@ -84,7 +80,6 @@ public class AlphabetGameActivity extends AppCompatActivity {
         };
         timer.schedule(timerTask,0,1000); //saniyeyi olcmus oluyor.
     }
-
     */
     public void AddLetterSounds(){
         letterSoundsRes.add(R.raw.letter_a);

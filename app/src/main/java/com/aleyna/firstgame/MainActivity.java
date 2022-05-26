@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         startService(service); //arka plan muzigi icin
 
         InvisibleSettings(); //settingPanel kapalı
-
         if(main.getMinute(context)==2) snakeButton.setImageResource(R.drawable.snake_noti);
         else snakeButton.setImageResource(R.drawable.snake);
         snakeButton.setOnClickListener(new View.OnClickListener() {

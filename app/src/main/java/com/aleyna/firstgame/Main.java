@@ -85,8 +85,8 @@ public class Main extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-              //  editor.remove("snakeSecond").commit(); //burasi yorum satirina alinacak
-              //  editor.remove("snakeMinute").commit(); //burasi yorum satirina alinacak
+                //editor.remove("snakeSecond").commit(); //burasi yorum satirina alinacak
+                //editor.remove("snakeMinute").commit(); //burasi yorum satirina alinacak
                 int timeSecond = sharedPreferences.getInt("snakeSecond",0);
                 int minute = sharedPreferences.getInt("snakeMinute",0);
 

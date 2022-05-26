@@ -95,12 +95,11 @@ public class MathGameActivity extends AppCompatActivity {
                     back_anim.start();
                     guess.setEnabled(false);
                     guess.setText("");
-
                  //   numberGenerator();
                     closeVisible(); //onu donukse arkaya cevirecegemizdden dolayı gorunurlukleri kapatmam gerekiyor
                     confetti.setAlpha(0f);
                     isFront = false; //onu donuk mu boolean degerini artik arkasi donuk olacagindan false yapiyorum
-                }else{
+                }else{ //arkadan öne dönerken
                     float scale = getApplicationContext().getResources().getDisplayMetrics().density;
                     card_front.setCameraDistance(8000*scale);
                     card_back.setCameraDistance(8000*scale);
@@ -204,6 +203,5 @@ public class MathGameActivity extends AppCompatActivity {
                 guess.setAlpha(1f);
             }
         },750);//bu kadar bekledikten sonra run kısmını calistiriyor.
-
     }
 }

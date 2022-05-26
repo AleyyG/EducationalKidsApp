@@ -47,9 +47,7 @@ public class NumberGameActivity extends AppCompatActivity {
         });
         numberButton.setOnClickListener(new View.OnClickListener() { //renk butonuna tikladiginda
             @Override
-            public void onClick(View view) {
-                mediaPlayer.start();
-            }
+            public void onClick(View view) { mediaPlayer.start(); }
         });
         backGameScene.setOnClickListener(new View.OnClickListener() { //game menusune donus butonu
             @Override

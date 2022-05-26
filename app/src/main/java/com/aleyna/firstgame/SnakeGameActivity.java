@@ -113,11 +113,4 @@ public class SnakeGameActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if(hasFocus){
-
-        }
-    }
 }

@@ -129,7 +129,6 @@ public class Snake {
             this.x = x;
             this.y = y;
         }
-
     }
     interface SnakeStatusUpdate{
         void onFoodEaten(int total);

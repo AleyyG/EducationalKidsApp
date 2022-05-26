@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 
 public class SnakeGame extends View implements Snake.SnakeStatusUpdate {
     GameUpdateListener gameUpdateListener = null;
-    Snake snake = null ;
+    Snake snake = null;
 
     int screenWidth = 0;
     int screenHeight = 0;
@@ -25,13 +25,13 @@ void setGameUpdateListener(GameUpdateListener listener){
             @Override
             public void OnSwipeUp() {
                 super.OnSwipeUp();
-                snake.setDirection(0,-1);
+                snake.setDirection(0,1);
             }
 
             @Override
             public void OnSwipeDown() {
                 super.OnSwipeDown();
-                snake.setDirection(0,1);
+                snake.setDirection(0,-1);
             }
 
             @Override
@@ -47,11 +47,6 @@ void setGameUpdateListener(GameUpdateListener listener){
             }
         });
     }
-    public SnakeGame(Context context) {
-        super(context);
-        setup();
-    }
-
     public SnakeGame(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         setup();
@@ -76,7 +71,7 @@ void setGameUpdateListener(GameUpdateListener listener){
         //ilk andaki goruntusu kalmaya devam eder ne kadar hareket etse de
     }
 
-    @Override
+    @Override //telefonun width height degerlerini alir.
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         screenWidth = w;

@@ -36,9 +36,9 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
                     }else{
                         if(Math.abs(yDiff)>threshold && Math.abs(velocityY)>velocity_threshold){
                             if(yDiff > 0){
-                                OnSwipeDown();
-                            }else{
                                 OnSwipeUp();
+                            }else{
+                                OnSwipeDown();
                             }
                             return true;
                         }
@@ -52,7 +52,6 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
         };
         gestureDetector = new GestureDetector(context,listener);
     }
-
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
